@@ -10,7 +10,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v1
     - uses: actions/setup-python@v1
@@ -46,7 +46,18 @@ jobs:
 
         echo "Testing with Scala 2.12"
         pushd $GITHUB_WORKSPACE
-          sbt ++2.12.10 test
+          sbt ++2.12.12 test
+        popd
+
+        echo "Downloading Spark 3.0.1"
+        wget -q https://archive.apache.org/dist/spark/spark-3.0.1/spark-3.0.1-bin-hadoop2.7.tgz
+        tar xfz spark-3.0.1-bin-hadoop2.7.tgz
+        rm spark-3.0.1-bin-hadoop2.7.tgz
+        export SPARK_HOME=`pwd`"/spark-3.0.1-bin-hadoop2.7/"
+
+        echo "Testing with Scala 2.12"
+        pushd $GITHUB_WORKSPACE
+          sbt ++2.12.12 test
         popd
 
         echo "Testing npm build"
