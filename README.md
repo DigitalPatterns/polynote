@@ -23,3 +23,5 @@ Current notebook solutions, like Jupyter and Zeppelin, are lacking in some funda
     - The symbol table shows you what variables and functions you've defined, so you don't have to scroll around to remind yourself.
     - Compile failures and runtime exceptions are highlighted in the editor (for supported languages), so you can see exactly what's going wrong.
 
+
+Testing Spark 3.0.1 support
