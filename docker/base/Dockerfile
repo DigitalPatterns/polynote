@@ -1,4 +1,4 @@
-FROM openjdk:11-slim-buster
+FROM openjdk:8-slim-buster
 
 ARG POLYNOTE_VERSION
 ARG SCALA_VERSION
